@@ -49,8 +49,8 @@ subprocess.call(["git","status"])	#Check difference in what's pushed
 rm_files = input("Delete Scripted files (Y/N)? ")	#Get number of files for repo
 if rm_files == 'Y':
 	start_rm_cmd_time = time.time()
-	for rm_index in range(num_files):
-		subprocess.call(["git","rm","%u_ex_file.txt" %rm_index]) #remove the <num_files>[index] for commit stage
+	#for rm_index in range(num_files):
+	subprocess.call(["git","commit","-a", "-m",commit_msg2]) #remove the <num_files>[index] for commit stage
 	end_rm_cmd_time = time.time()
 	subprocess.call(["git","commit","-m",commit_msg2]) #Commit the new files to repo
 	subprocess.call(["git","push","origin","master"]) #Push new files to repo

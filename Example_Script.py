@@ -39,23 +39,22 @@ for index in range(num_files):
 
 #SUBPROCESS -> GIT COMMANDS
 start_add_cmd_time = time.time()
-for add_index in range(num_files):
-	subprocess.call(["git","add","%u_ex_file.txt" %add_index]) #Add the <num_files>[index] for commit stage
+subprocess.call(["git","add","."]) #Add all files for commit stage
 end_add_cmd_time = time.time()
-
-#subprocess.call(["git","status"])	#Check difference in what's added
 subprocess.call(["git","commit","-m","commit_msg"]) #Commit the new files to repo
 subprocess.call(["git","push","origin","master"]) #Push new files to repo
 subprocess.call(["git","status"])	#Check difference in what's pushed
 
+#SUBPROCESS -> REMOVE FILES FROM REPO
 rm_files = input("Delete Scripted files (Y/N)? ")	#Get number of files for repo
 if rm_files == 'Y':
 	start_rm_cmd_time = time.time()
 	for rm_index in range(num_files):
 		subprocess.call(["git","rm","%u_ex_file.txt" %rm_index]) #remove the <num_files>[index] for commit stage
+	end_rm_cmd_time = time.time()
 	subprocess.call(["git","commit","-m",commit_msg2]) #Commit the new files to repo
 	subprocess.call(["git","push","origin","master"]) #Push new files to repo
-	end_rm_cmd_time = time.time()
+	
 	print("Remove time: ", end_rm_cmd_time - start_rm_cmd_time)
 #DATA (Will move to text file creation)	
 print("Add time: ", end_add_cmd_time - start_add_cmd_time)

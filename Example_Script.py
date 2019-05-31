@@ -17,13 +17,14 @@ commit_msg2 = "Automated remove of scripted files"
 #SUBPROCESS -> INIT
 import subprocess
 import time
+import os
 start_time = time.time()	#initial EPOCH
 PIPE = subprocess.PIPE
 branch = 'my_branch'
 process = subprocess.Popen(['git', 'pull', branch], stdout=PIPE, stderr=PIPE)
 stdoutput, stderroutput = process.communicate()
 #subprocess.call(["git","status"])
-
+os.mkdir('tempDir')
 #USER DISPLAY & VARIABLE INPUT
 print("VCS Project\n")
 num_files = input("number of files needed: ")	#Get number of files for repo 

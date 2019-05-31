@@ -9,7 +9,7 @@
 #USEFUL INFO: 
 	#Parse File: https://stackoverflow.com/questions/6497722/how-to-create-a-very-large-file-cheaply-using-python-in-windows-7/6497779#6497779
 	#GitPython: https://gitpython.readthedocs.io/en/stable/tutorial.html#examining-references
-
+	#Subprocess: https://stackoverflow.com/questions/11113896/use-git-commands-within-python-code
 #SUBPROCESS INIT
 import subprocess
 PIPE = subprocess.PIPE

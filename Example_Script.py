@@ -10,23 +10,30 @@
 	#Parse File: https://stackoverflow.com/questions/6497722/how-to-create-a-very-large-file-cheaply-using-python-in-windows-7/6497779#6497779
 	#GitPython: https://gitpython.readthedocs.io/en/stable/tutorial.html#examining-references
 	#Subprocess: https://stackoverflow.com/questions/11113896/use-git-commands-within-python-code
+import subprocess
+import time
+import os
 
 #VARIABLES
 commit_msg = "automated commit message"
 commit_msg2 = "Automated remove of scripted files"
 #SUBPROCESS -> INIT
-import subprocess
-import time
-import os
+
 start_time = time.time()	#initial EPOCH
 PIPE = subprocess.PIPE
 branch = 'my_branch'
 process = subprocess.Popen(['git', 'pull', branch], stdout=PIPE, stderr=PIPE)
 stdoutput, stderroutput = process.communicate()
-#subprocess.call(["git","status"])
-os.mkdir('tempDir')
+
 #USER DISPLAY & VARIABLE INPUT
 print("VCS Project\n")
+'''Direc_list = []
+Dir_count = input("Enter number of directories: ")
+while Dir_count != 'done':
+	Direc_list.append(int(Dir_count))
+	Dir_count = input("Enter number of directories: ")
+print(Direc_list)
+'''
 num_files = input("number of files needed: ")	#Get number of files for repo 
 num_files = int(num_files)
 file_size = input("Size of file needed(KB): ")	#Get file size in kilobytes - IMPORTANT NOTE: Github recommended maximum file size = 50MB
